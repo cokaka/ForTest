@@ -1,0 +1,42 @@
+一.JIRA User's Guide
+A.JIRA Concepts
+a.What is a Project
+1.a jira pro is a collection of issue.
+2.what is a component(成分)
+3.what is a version
+
+b.What is a Workflow
+1.a jira wf is the set of statuses and transitions that 
+
+an issue goes through during its lifecycle
+
+c.What is an issue
+1.different org use issue for different kinds,like 
+
+software bug、project task
+2.how to compare affects version with fix 
+
+version.according to the type of an issue?
+3.some of most important fields:Issue type、Priority、
+
+Status、Resolution
+
+
+B.Getting started
+a.Logging in to JIRA
+
+b.Exploring the JIRA Workspace
+
+C.Working with an Issue
+
+D.Searching for Issue
+
+E.Generating Reports
+
+F.Browsing a Project
+
+G.Customizing the Dashboard
+
+H.Managing your User Profile
+
+I.Data collection policy
