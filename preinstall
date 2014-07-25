@@ -494,19 +494,19 @@ system1 # ssh -l root system2 uname -a
 
 
 
-Restarting the ssh session
+Restarting the ssh session(重启ssh进程)
 ==========================
 
 After you complete this procedure, ssh can be restarted in any of the
-following scenarios:
+following scenarios:（根据以下程序，ssh可以在任何场景下重启）
 
-* After a terminal session is closed
+* After a terminal session is closed（当远程进程关闭时）
 
-* After a new terminal session is opened
+* After a new terminal session is opened（当新建一个远程进程时）
 
-* After a system is restarted
+* After a system is restarted（当系统重启时）
 
-* After too much time has elapsed, to refresh ssh
+* After too much time has elapsed, to refresh ssh（当连接时间太长，刷新时）
 
 
 To restart ssh
@@ -522,7 +522,7 @@ system1 # ssh-add
 
 
 
-Enabling rsh for Linux
+Enabling rsh for Linux（授权remote shell，远程shell）
 ======================
 
 The following section describes how to enable remote shell.
@@ -537,7 +537,7 @@ To enable rsh
 
 1. To ensure that the rsh and rsh-server packages are installed, type
    the following command:
-
+--到这里--
 # rpm -qa | grep -i rsh
 
    If it is not already in the file, type the following command to append
