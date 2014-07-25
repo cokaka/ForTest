@@ -1,0 +1,986 @@
+Installing Storage Foundation and High Availability Products
+
+* Legal Notice
+
+* Overview of this SFHA release
+
+* Documentation
+
+* System requirements
+
+* Performing preinstallation checks and configuration
+
+* Prechecking your systems using the Veritas installer
+
+* About configuring secure shell or remote shell communication modes
+  before installing products
+
+* Downloading the Storage Foundation and High Availability
+  software
+
+* Storage Foundation prerequisites
+
+* Storage Foundation Cluster File System prerequisites
+
+* About the Web-based installer
+
+* About installation scripts
+
+* Troubleshooting the webinstaller
+
+
+
+Legal Notice
+============
+
+Copyright 2011 Symantec Corporation. All rights reserved.
+
+Symantec, the Symantec logo, Veritas, Veritas Storage Foundation,
+CommandCentral, NetBackup, Enterprise Vault, and LiveUpdate are
+trademarks or registered trademarks of Symantec corporation or its
+affiliates in the U.S. and other countries. Other names may be trademarks
+of their respective owners.
+
+The product described in this document is distributed under licenses
+restricting its use, copying, distribution, and decompilation/reverse
+engineering. No part of this document may be reproduced in any form by
+any means without prior written authorization of Symantec Corporation and
+its licensors, if any.
+
+THE DOCUMENTATION IS PROVIDED "AS IS" AND ALL EXPRESS OR IMPLIED
+CONDITIONS, REPRESENTATIONS AND WARRANTIES, INCLUDING ANY IMPLIED
+WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR
+NON-INFRINGEMENT, ARE DISCLAIMED, EXCEPT TO THE EXTENT THAT SUCH
+DISCLAIMERS ARE HELD TO BE LEGALLY INVALID. SYMANTEC CORPORATION SHALL
+NOT BE LIABLE FOR INCIDENTAL OR CONSEQUENTIAL DAMAGES IN CONNECTION WITH
+THE FURNISHING, PERFORMANCE, OR USE OF THIS DOCUMENTATION. THE
+INFORMATION CONTAINED IN THIS DOCUMENTATION IS SUBJECT TO CHANGE WITHOUT
+NOTICE.
+
+The Licensed Software and Documentation are deemed to be commercial
+computer software as defined in FAR 12.212 and subject to restricted
+rights as defined in FAR Section 52.227-19 "Commercial Computer Software
+- Restricted Rights" and DFARS 227.7202, "Rights in Commercial Computer
+Software or Commercial Computer Software Documentation", as applicable,
+and any successor regulations.  Any use, modification, reproduction
+release, performance, display or disclosure of the Licensed Software and
+Documentation by the U.S. Government shall be solely in accordance with
+the terms of this Agreement.
+
+Symantec Corporation
+350 Ellis Street
+Mountain View, CA 94043
+http://www.symantec.com
+
+
+Overview of this SFHA release
+=============================
+
+For important updates regarding this release, review the Late-Breaking
+News TechNote on the Symantec Technical Support website:
+http://entsupport.symantec.com/docs/335001
+
+The hardware compatibility list (HCL) contains information about
+supported hardware and is updated regularly. For the latest information
+on supported hardware visit the following URL:
+http://entsupport.symantec.com/docs/330441
+
+Review this entire document before installing your Veritas Storage
+Foundation product.
+
+This document does not contain release information for Veritas Cluster
+Server.
+
+See the Veritas Cluster Server Release Notes.
+
+
+About the Simple Admin utility
+==============================
+
+Veritas Storage Foundation and High Availability as an optional utility,
+called Simple Admin, that you can use with Veritas File System and
+Veritas Volume Manager. The Simple Admin utility simplifies storage
+management by providing a single interface to the administrator and by
+abstracting the administrator from many of the commands needed to create
+and manage volumes, disks groups, and file systems.
+
+You can download the Simple Admin utility for Veritas Storage Foundation
+and High Availability from the following URL:
+http://www.symantec.com/business/products/agents_options.jsp?pcid=2245&pvid
+=203_1
+
+
+About Symantec Operations Readiness Tools
+=========================================
+
+Symantec Operations Readiness Tools (SORT) is a set of Web-based tools
+and services that lets you proactively manage your Symantec enterprise
+products. SORT automates and simplifies administration tasks, so you can
+manage your data center operations more efficiently and get the most out
+of your Symantec products.
+
+SORT lets you do the following:
+
+* Collect, analyze, and report on server configurations across UNIX or
+  Windows environments. You can use this data to do the following:
+
+  - Assess whether your systems are ready to install or upgrade
+    Symantec enterprise products（评估你的环境是否已经做好准备）
+
+  - Tune environmental parameters so you can increase performance,
+    availability, and use（调整你的环境变量）
+
+  - Analyze your current deployment and identify the Symantec
+    products and licenses you are using（分析你最近的开发，并确认你正在使用的产品和授权）
+
+
+* Upload configuration data to the SORT Web site, so you can share
+  information with coworkers, managers, and Symantec Technical Support
+
+* Compare your configurations to one another or to a standard build, so
+  you can determine if a configuration has "drifted"
+
+* Search for and download the latest product patches（下载最新补丁）
+
+* Get notifications about the latest updates for:
+
+  - Patches（补丁）
+
+  - Hardware compatibility lists (HCLs)（硬件兼容）
+
+  - Array Support Libraries (ASLs)（包库）
+
+  - Array Policy Modules (APMs)
+
+  - VCS agents（代理）
+
+
+* Determine whether your Symantec enterprise product configurations
+  conform to best practices（确认你的Sym企业级产品配置是最佳实践）
+
+* Search and browse the latest product documentation（获取最新的相关文档）
+
+* Look up error code descriptions and solutions
+
+Note: Certain features of SORT are not available for all products.
+
+
+To access SORT, go to:
+http://sort.symantec.com/
+
+
+
+Documentation
+=============
+
+Product guides are available on the software disc in PDF format.
+Symantec's Veritas Storage Foundation documentation is also available on
+the Symantec website.
+
+Symantec's Veritas Storage Foundation 5.1 SP1 PR2 documentation set is
+available at the following URL:
+
+http://www.symantec.com/business/support/index.jsp
+
+
+System requirements（系统要求）
+===================
+
+This section describes the system requirements for this release.
+
+
+Supported Linux operating systems（支持linux）
+=================================
+
+This section lists the supported operating system for this release of
+Veritas products.
+
+The Veritas Storage Foundation 5.1 SP1 PR2 release supports the following
+operating system and hardware:
+
+* Red Hat Enterprise Linux 6 (RHEL 6) (2.6.32-71.el6 kernel) or later
+  on AMD Opteron or Intel Xeon EM64T (x86_64)
+
+Note: 64-bit operating systems are only supported.（仅支持64位）
+
+If your system is running an older version of Red Hat Enterprise Linux,
+you must upgrade it before attempting to install the Veritas software.
+Consult the Red Hat documentation for more information on upgrading or
+reinstalling your system.
+
+Symantec supports only Red Hat distributed kernel binaries.
+
+
+Symantec products operate on subsequent kernel and patch releases
+provided the operating systems maintain kernel ABI (application binary
+interface) compatibility.
+
+Information about the latest supported Red Hat errata and updates is
+available in the following TechNote:
+http://entsupport.symantec.com/docs/335001
+
+Read this TechNote before you install Symantec products.（安装前必读）
+
+For information about the use of this product in a VMware Environment,
+refer to http://entsupport.symantec.com/docs/289033
+
+
+Performing preinstallation checks and configuration（安装前检查和配置）
+===================================================
+
+This document is designed for system administrators who already have a
+basic knowledge of UNIX system and network administration. Basic
+knowledge includes commands such as tar, mkdir, and simple shell
+scripting. Also required is basic familiarity with the specific platform
+and operating system where Storage Foundation is installed.
+（此文档面向那些已有基本的UNIX以及网络知识的系统管理员。基本技能包括会使用tar、mkdir以及简单的shell脚本。同样也包括要熟悉安装SF所需的详细的平台和操作系统）
+
+If you already have an earlier version of any of the Veritas products
+installed, refer to the upgrade procedures.
+（如果已经安装了旧版本，则进行升级）
+
+Only users with superuser privileges can install and initialize Storage
+Foundation.
+（只有超级权限的用户才能安装和初始化SF）
+
+Review the preinstallation requirements and system requirements. Install
+the operating system before installing the Veritas software.
+（重审安装前的要求，务必在安装VS前先安装好操作系统）
+
+Mount the Veritas software disc, or download and uncompress the Storage
+Foundation software.
+（使用VS光盘，或者下载并解压VS）
+
+To produce a report of the preinstallation requirements, run the
+installer with the precheck option.
+（产出安装前要求报告，执行安装脚本并选择提前检查选项）
+
+# ./installer -precheck
+
+If patches to the Linux operating system are required, the patches should
+be applied prior to installing the Veritas products. Patches may be
+required to resolve Linux kernel, product performance, or other issues.
+
+The system should be in a quiescent state before adding patches.
+
+See the product Release Notes for last minute information on recommended
+patches.
+
+For remote installation, or installation on multiple systems, set up
+remsh or ssh.
+
+
+
+Prechecking your systems using the Veritas installer
+====================================================
+
+The script-based and Web-based installer's precheck option checks for the
+following:（这两个提前检查项会检查以下：）
+
+* Recommended swap space for installation
+
+* Recommended memory sizes on target systems for Veritas programs for
+  best performance
+
+* Required operating system versions
+
+
+To use the precheck option
+
+1. Start the script-based or Web-based installer.
+
+2. Select the precheck option:
+
+   * From the Web-based installer, select the Perform a
+     Pre-Installation Check from the Task pull-down menu.
+
+   * In the script-based installer, from root on the system where
+     you want to perform the check, start the installer.
+
+# ./installer
+
+     In the Task Menu, press the p key to start the precheck.
+
+
+3. Review the output and make the changes that the installer
+   recommends.
+
+
+
+About configuring secure shell or remote shell communication modes before
+installing products（关于在安装前配置SSH或RSH）
+=========================================================================
+
+Establishing communication between nodes is required to install Veritas
+software from a remote system, or to install and configure a cluster. The
+node from which the installer is run must have permissions to run rsh
+(remote shell) or ssh (secure shell) utilities. You need to run the
+installer with superuser privileges on the systems where you plan to
+install Veritas software.
+（在两个节点建立可靠的通信是必须的。）
+
+You can install products to remote systems using either secure shell
+(ssh) or remote shell (rsh). Symantec recommends that you use ssh as it
+is more secure than rsh.
+（可以通过SSH或RSH来安装这个产品，Sym推荐使用SSH以为这样会更为安装）
+
+This section contains an example of how to set up ssh password free
+communication. The example sets up ssh between a source system (system1)
+that contains the installation directories, and a target system
+(system2). This procedure also applies to multiple target systems.
+（设置SSH）
+
+
+Configuring and enabling ssh
+============================
+
+The ssh program enables you to log into and execute commands on a remote
+system. ssh enables encrypted communications and an authentication
+process between two untrusted hosts over an insecure network.
+（可以保证登陆到另一台机器，并运行命令。）
+
+In this procedure, you first create a DSA key pair. From the key pair,
+you append the public key from the source system to the authorized_keys
+file on the target systems.
+（根据手册，首先创建一对DSA key）
+
+Read the ssh documentation and online manual pages before enabling ssh.
+Contact your operating system support provider for issues regarding ssh
+configuration.
+（）
+
+Visit the OpenSSH website that is located at: http://openssh.org to
+access online manuals and other resources.
+
+To create the DSA key pair
+
+1. On the source system (system1), log in as root, and navigate to the
+   root directory.
+
+system1 # cd /root
+
+2. To generate a DSA key pair on the source system, type the following
+   command:
+   （创建DSAkey）
+
+system1 # ssh-keygen -t dsa
+
+   System output similar to the following is displayed:
+
+Generating public/private dsa key pair.
+Enter file in which to save the key (/root/.ssh/id_dsa):
+
+3. Press Enter to accept the default location of /root/.ssh/id_dsa.
+
+4. When the program asks you to enter the passphrase, press the Enter
+   key twice.
+
+Enter passphrase (empty for no passphrase):
+
+   Do not enter a passphrase. Press Enter.
+
+Enter same passphrase again:
+
+   Press Enter again.
+
+5. Output similar to the following lines appears.
+
+Your identification has been saved in /root/.ssh/id_dsa.
+Your public key has been saved in /root/.ssh/id_dsa.pub.
+The key fingerprint is:
+1f:00:e0:c2:9b:4e:29:b4:0b:6e:08:f8:50:de:48:d2 root@system1
+
+
+To append the public key from the source system to the authorized_keys
+file on the target system, using secure file transfer
+
+1. From the source system (system1), move the public key to a
+   temporary file on the target system (system2).
+
+   Use the secure file transfer program.
+
+   In this example, the file name id_dsa.pub in the root directory is the
+   name for the temporary file for the public key.
+
+   Use the following command for secure file transfer:
+
+system1 # sftp system2
+
+   If the secure file transfer is set up for the first time on this
+   system, output similar to the following lines is displayed:
+
+Connecting to system2 ...
+The authenticity of host 'system2 (10.182.00.00)' 
+can't be established. DSA key fingerprint is
+fb:6f:9f:61:91:9d:44:6b:87:86:ef:68:a6:fd:88:7d.
+Are you sure you want to continue connecting (yes/no)?
+
+2. Enter yes.
+
+   Output similar to the following is displayed:
+
+Warning: Permanently added 'system2,10.182.00.00' 
+(DSA) to the list of known hosts.
+root@system2 password:
+
+3. Enter the root password of system2.
+
+4. At the sftp prompt, type the following command:
+
+sftp> put /root/.ssh/id_dsa.pub
+
+   The following output is displayed:
+
+Uploading /root/.ssh/id_dsa.pub to /root/id_dsa.pub
+
+5. To quit the SFTP session, type the following command:
+
+sftp> quit
+
+6. Add the id_dsa.pub keys to the authorized_keys file on the target
+   system. To begin the ssh session on the target system (system2 in this
+   example), type the following command on system1:
+
+system1 # ssh system2
+
+   Enter the root password of system2 at the prompt:
+
+password:
+
+   Type the following commands on system2:
+
+system2 # cat /root/id_dsa.pub >> /root/.ssh/authorized_keys
+system2 # rm  /root/id_dsa.pub 
+
+7. When you install from a source system that is also an installation
+   target, also add the local system id_dsa.pub key to the local
+   authorized_keys file. The installation can fail if the installation
+   source system is not authenticated.
+
+   To add the local system id_dsa.pub key to the local authorized_keys
+   file, enter the following command:
+
+system1 # cat /root/.ssh/id_dsa.pub >> /root/.ssh/authorized_keys
+
+8. Run the following commands on the source installation system. If
+   your ssh session has expired or terminated, you can also run these
+   commands to renew the session. These commands bring the private key
+   into the shell environment and make the key globally available to the
+   user root:
+
+system1 # exec /usr/bin/ssh-agent $SHELL
+system1 # ssh-add
+
+  Identity added: /root/.ssh/id_dsa
+
+   This shell-specific step is valid only while the shell is active. You
+   must execute the procedure again if you close the shell during the
+   session.
+
+
+To verify that you can connect to a target system
+
+1. On the source system (system1), enter the following command:
+
+system1 # ssh -l root system2 uname -a
+
+   where system2 is the name of the target system.
+
+2. The command should execute from the source system (system1) to the
+   target system (system2) without the system requesting a passphrase or
+   password.
+
+3. Repeat this procedure for each target system.
+
+
+
+Restarting the ssh session
+==========================
+
+After you complete this procedure, ssh can be restarted in any of the
+following scenarios:
+
+* After a terminal session is closed
+
+* After a new terminal session is opened
+
+* After a system is restarted
+
+* After too much time has elapsed, to refresh ssh
+
+
+To restart ssh
+
+1. On the source installation system (system1), bring the private key
+   into the shell environment.
+
+system1 # exec /usr/bin/ssh-agent $SHELL
+
+2. Make the key globally available for the user root
+
+system1 # ssh-add
+
+
+
+Enabling rsh for Linux
+======================
+
+The following section describes how to enable remote shell.
+
+Veritas recommends configuring a secure shell environment for Veritas
+product installations.
+
+See the operating system documentation for more information on
+configuring remote shell.
+
+To enable rsh
+
+1. To ensure that the rsh and rsh-server packages are installed, type
+   the following command:
+
+# rpm -qa | grep -i rsh
+
+   If it is not already in the file, type the following command to append
+   the line "rsh" to the /etc/securetty file:
+
+# echo "rsh" >> /etc/securetty
+
+2. Modify /etc/init.d/rsh disable=no.
+
+3. In the /etc/pam.d/rsh file, change the "auth" type from "required"
+   to "sufficient":
+
+auth     sufficient
+
+4. Add the "promiscuous" flag into /etc/pam.d/rsh and
+   /etc/pam.d/rlogin after item "pam_rhosts_auth.so".
+
+5. To enable the rsh server, type the following command:
+
+# chkconfig rsh on
+
+6. Modify the .rhosts file. Each line of the .rhosts file contains a
+   fully qualified domain name or IP address for each remote system. This
+   file also contains the name of a user having access to the local
+   system. For example, if the root user must remotely access system1
+   from system2, add an entry for system2.companyname.com to the .rhosts
+   file on system1 by typing the following command:
+
+# echo "system2.companyname.com" >> $HOME/.rhosts
+
+7. Install the Veritas product.
+
+
+To disable rsh
+
+1. Remove the "rsh" entry in the /etc/securetty file.
+
+2. Disable the rsh server by typing the following command:
+
+# chkconfig rsh off
+
+3. After you complete an installation procedure, delete the .rhosts
+   file from each user's $HOME directory to ensure security:
+
+# rm -f $HOME/.rhosts
+
+
+
+Downloading the Storage Foundation and High Availability software
+=================================================================
+
+One method of obtaining the Veritas Storage Foundation software is to
+download it to your local system from the Symantec Web site.
+
+For a Trialware download, you can use the following link. For other
+downloads, contact your Veritas representative for more information.
+http://www.symantec.com/business/products/downloads/index.jsp
+
+If you download a standalone Veritas product, the single product download
+files do not contain the product installer. Use the installation script
+for the specific product to install the product.
+
+To download the software
+
+1. Verify that you have enough space on your filesystem to store the
+   downloaded software.
+
+   The estimated space for download, gunzip, and tar extract is 1 GB.
+
+   If you plan to install the software on the same system, make sure that
+   you also have enough space for the installed software.
+
+2. To see the space available, you can use the df command with the
+   name of the local file system where you intend to download the
+   software.
+
+# df -k filesystem
+
+   Note: When you select a location to download files, do not select a
+   directory that contains Veritas products from a previous release or
+   maintenance pack. Make sure that different versions exist in different
+   directories.
+
+3. Download the software, specifying the file system with sufficient
+   space for the file.
+
+
+
+Storage Foundation prerequisites
+================================
+
+This section describes the Storage Foundation prerequisites.
+
+
+Determining if the root disk is encapsulated
+============================================
+
+Check if the system's root disk is under VxVM control by running this
+command:
+
+# df -v /
+
+The root disk is under VxVM control if /dev/vx/dsk/rootdg/rootvol is
+listed as being mounted as the root (/) file system.
+
+If the root disk is encapsulated, follow the appropriate upgrade
+procedures.
+
+
+Planning the upgrade
+====================
+
+Be sure that the administrator doing the upgrade has root access and a
+working knowledge of Linux operating system administration.
+
+Complete the following tasks in advance of upgrading:
+
+* Check the latest Storage Foundation Release Notes to verify that the
+  system is running a supported Linux version.
+
+* Schedule sufficient outage time for the upgrade, and downtime for any
+  applications using the VxFS file systems or VxVM volumes.
+
+* To reliably save information on a mirrored disk, shut down the system
+  and physically remove the mirrored disk. (This may not be practical,
+  but if done, offers a failback point.)
+
+* To upgrade on a remote host, rsh or ssh must be set up.
+
+* Determine if the root disk is encapsulated.
+
+* Select the method to upgrade.
+
+
+
+Saving system information before upgrade
+========================================
+
+Use the following procedure to save system information before an upgrade.
+
+To save system information before an upgrade
+
+1. Log in as superuser.
+
+2. Before upgrading, ensure that you have made backups of all data
+   that you want to preserve.
+
+3. In particular, you will need the information in files such as
+   /boot/grub/menu.lst, /etc/grub.conf or /etc/lilo.conf (as
+   appropriate), and /etc/fstab.
+
+4. Copy fstab to fstab.orig:
+
+# cp /etc/fstab /etc/fstab.orig
+
+5. Run the vxlicrep, vxdisk list, and vxprint -ht commands and record
+   the output. Use this information to reconfigure your system after the
+   upgrade.
+
+6. If you are installing the HA version of the Veritas Storage
+   Foundation 5.1 SP1 PR2 software, follow the guidelines given in the
+   Veritas Cluster Server Installation Guide and Veritas Cluster Server
+   Release Notes for information on preserving your VCS configuration
+   across the installation procedure.
+
+
+
+Storage Foundation Cluster File System prerequisites
+====================================================
+
+This section describes the Storage Foundation Cluster File System
+prerequisites.
+
+
+Planning the upgrade
+====================
+
+Complete the following tasks in advance of upgrading:
+
+* Review the Veritas Storage Foundation Release Notes for any
+  late-breaking information on upgrading your system.
+
+* Be sure that the administrator doing the upgrade has root access and
+  a working knowledge of system administration.
+
+* Schedule sufficient outage time for the upgrade.
+
+* Make sure you have upgraded all the file systems to disk layout
+  Version 6, before you upgrade SFCFS to 5.1 SP1 PR2. Disk layout Version
+  7 is the recommended version for SFCFS 5.1 SP1 PR2.
+
+  See vxupgrade(1M), vxconvert(1M), and fsadm(1M) manual pages.
+
+  See the Veritas File System Administrator's Guide.
+
+* Verify all the file systems are working fine and data is intact.
+
+  See the cfsmount(1M) manual page.
+
+
+
+Preparing the system and backing up files before upgrading
+==========================================================
+
+Before upgrading an installed Veritas Storage Foundation Cluster File
+System, preserve the existing configuration information.
+
+To preserve the existing configuration information, perform the following
+actions:
+
+* Make a record of the mount points for VxFS file systems and VxVM
+  volumes that are defined in the /etc/fstab file. You will need to
+  recreate these entries in the /etc/fstab file on the freshly installed
+  system.
+
+* Before upgrading, ensure that you have made backups of all data that
+  you want to preserve. In particular, you will need the information in
+  files such as /boot/grub/menu.lst, /etc/grub.conf, /etc/elilo.conf, or
+  /etc/lilo.conf (as appropriate), and /etc/fstab. You should also run
+  the vxlicrep, vxdisk list, and vxprint -ht commands, and record the
+  output from these. You may need this information to reconfigure your
+  system after the upgrade.
+
+* Use the vxlicrep command to make a record of the currently installed
+  Veritas licenses.
+
+* Back up the configuration files.
+
+# cp -r /etc/VRTSvcs/conf/ backupdirectory/
+
+* If Veritas Volume Replicator (VVR) is configured, do the following
+  steps in the order shown:
+
+  - Make sure that the disk groups that contain RVGs are at least at
+    disk group version 110.
+
+# vxdg list diskgroup
+
+  - Make sure the size of the SRL volume is greater than 110 MB.
+
+    Refer to the Veritas Volume Replicator Administrator's Guide.
+
+  - Stop all the applications involved in replication. For example,
+    if a data volume contains a file system, unmount it.
+
+  - Verify that all of the Primary RLINKs are up to date:
+
+# vxrlink -g diskgroup status rlink_name
+
+  Note: Do not continue until the Primary RLINKs are up to date.
+
+
+
+About the Web-based installer
+=============================
+
+Use the Web-based installer's interface to install Veritas products. The
+Web-based installer can perform most of the tasks that the script-based
+installer performs.
+
+You use the webinstaller script to start and stop the Veritas XPortal
+Server xprtlwid process. The webinstaller script can also be used to
+check the status of the XPortal Server.
+
+When the webinstaller script starts the xprtlwid process, the script
+displays a URL. Use this URL to access the Web-based installer from a Web
+browser such as Internet Explorer or FireFox.
+
+The Web installer creates log files whenever the Web installer is
+operating. While the installation processes are operating, the log files
+are located in a session-based directory under the /var/tmp directory.
+After the install process completes, the log files are located in the
+/opt/VRTS/install/logs directory. It is recommended that you keep the
+files for auditing, debugging, and future use.
+
+The location of the Veritas XPortal Server configuration file is
+/var/opt/webinstaller/xprtlwid.conf.
+
+
+About installation scripts
+==========================
+
+Veritas Storage Foundation and High Availability Solutions 5.1 SP1 PR2
+provides several installation scripts.
+
+An alternative to the installer script is to use a product-specific
+installation script. If you obtained a Veritas product from an electronic
+download site, which does not include the installer, use the appropriate
+product installation script.
+
+The following product installation scripts are available:
+
+Veritas Cluster Server (VCS)
+ installvcs
+
+Veritas Storage Foundation (SF)
+ installsf
+
+Veritas Storage Foundation and High Availability (SFHA)
+ installsfha
+
+Veritas Storage Foundation Cluster File System (SFCFS)
+ installsfcfs
+
+Veritas Storage Foundation Cluster File System for Oracle RAC (SFCFSRAC)
+ installsfcfsrac
+
+Veritas Storage Foundation for Oracle RAC (SF Oracle RAC)
+ installsfrac
+
+Symantec Product Authentication Service (AT)
+ installat
+
+Veritas Dynamic Multi-pathing
+ installdmp
+
+Symantec VirtualStore
+ installsvs
+
+
+To use the installation script, enter the script name at the prompt. For
+example, to install Veritas Storage Foundation, type ./installsf at the
+prompt.
+
+
+
+Starting and stopping processes for the Veritas products
+========================================================
+
+After the installation and configuration is complete, the Veritas product
+installer starts the processes that are used by the installed products.
+You can use the product installer to stop or start the processes, if
+required.
+
+To stop the processes
+
+* Use the -stop option to stop the product installation script.
+
+  For example, to stop the product's processes, enter the following
+  command:
+
+# ./installer -stop
+
+
+To start the processes
+
+* Use the -start option to start the product installation script.
+
+  For example, to start the product's processes, enter the following
+  command:
+
+# ./installer -start
+
+
+
+Restarting the installer after a failed connection
+==================================================
+
+If an installation is killed because of a failed connection, you can
+restart the installer to resume the installation. The installer detects
+the existing installation. The installer prompts you whether you want to
+resume the installation. If you resume the installation, the installation
+proceeds from the point where the installation failed.
+
+
+
+Installation program has improved failure handling
+==================================================
+
+The product installer has improved ability to recover from failed
+installations, as follows:
+
+* A recovery file is created if an installation fails due to a failed
+  network connection. This file enables the install program to resume
+  from the point where the installation failed.
+
+* New options are available to start or stop the Veritas processes
+  without requiring a full installation or configuration.
+
+
+
+About the Veritas installer
+===========================
+
+The installer also enables you to configure the product, verify
+preinstallation requirements, and view the product's description.
+
+If you obtained a standalone Veritas product from an electronic download
+site, the single product download files do not contain the general
+product installer. Use the product installation script to install the
+product.
+
+At most points during the installation you can type the following
+characters for different actions:
+
+* Use b (back) to return to a previous section of the installation
+  procedure. The back feature of the installation scripts is
+  context-sensitive, so it returns to the beginning of a grouped section
+  of questions.
+
+* Use Control - c to stop and exit the program if an installation
+  procedure hangs. After a short delay, the script exits.
+
+* Use q to quit the installer.
+
+* Use ? to display help information.
+
+* Use the Enter button to accept a default response.
+
+
+Additional options are available for the installer.
+
+
+
+Troubleshooting the webinstaller
+================================
+
+This section provides possible solutions to problems that may occur when
+using the webinstaller.
+
+Issue: The webinstaller script may report an error.
+
+You may receive a similar error message when using the webinstaller:
+
+Error: could not get hostname and IP address
+
+Solution: Check whether /etc/hosts and /etc/resolv.conf file are
+correctly configured.
+
+Issue: The hostname is not a fully qualified domain name.
+
+You must have a fully qualified domain name for the hostname in
+https://<hostname>:<port>/.
+
+Solution: Check whether the domain section is defined in /etc/resolv.conf
+file.
+
+Issue: FireFox 3 may report an error.
+
+You may receive a similar error message when using FireFox 3:
+
+Certificate contains the same serial number as another certificate.
+
+Solution: Visit FireFox knowledge base website for solutions:
+http://support.mozilla.com/en-US/kb/Certificate+contains+the+same+serial+nu
+mber+as+another+certificate
