@@ -1,0 +1,5 @@
+The following required OS rpms were not found on 10.20.13.114:
+        glibc-2.12-1.7.el6.i686
+                 compat-libstdc++-33-3.2.3-69.el6.x86_64
+                 libstdc++-4.4.4-13.el6.i686
+                 ksh-20100621-2.el6.x86_64 libgcc-4.4.4-13.el6.i686
