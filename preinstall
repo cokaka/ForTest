@@ -539,6 +539,7 @@ To enable rsh
    the following command:
 --到这里--
 # rpm -qa | grep -i rsh
+（如果已经安装，将会显示rsh及rsh-server的版本）
 
    If it is not already in the file, type the following command to append
    the line "rsh" to the /etc/securetty file:
@@ -584,7 +585,7 @@ To disable rsh
 
 # rm -f $HOME/.rhosts
 
-
+# Complete rsh setting
 
 Downloading the Storage Foundation and High Availability software
 =================================================================
@@ -599,16 +600,20 @@ http://www.symantec.com/business/products/downloads/index.jsp
 If you download a standalone Veritas product, the single product download
 files do not contain the product installer. Use the installation script
 for the specific product to install the product.
+（如果下载的是单一产品包，它将不会包括安装向导。你可以通过安装脚本来设置详细的安装。）
 
 To download the software
 
 1. Verify that you have enough space on your filesystem to store the
    downloaded software.
+   （确保磁盘空间足够大）
 
    The estimated space for download, gunzip, and tar extract is 1 GB.
+   （预估需要1G）
 
    If you plan to install the software on the same system, make sure that
    you also have enough space for the installed software.
+   （如果你需要安装在当前目录，同样也要确保空间）
 
 2. To see the space available, you can use the df command with the
    name of the local file system where you intend to download the
@@ -620,6 +625,7 @@ To download the software
    directory that contains Veritas products from a previous release or
    maintenance pack. Make sure that different versions exist in different
    directories.
+   （请确保不同版本的软件存放在不同的目录下）
 
 3. Download the software, specifying the file system with sufficient
    space for the file.
@@ -630,6 +636,7 @@ Storage Foundation prerequisites
 ================================
 
 This section describes the Storage Foundation prerequisites.
+（此部分描述SF预装条件）
 
 
 Determining if the root disk is encapsulated
@@ -637,6 +644,7 @@ Determining if the root disk is encapsulated
 
 Check if the system's root disk is under VxVM control by running this
 command:
+（检查主磁盘是用VxVM来控制的）
 
 # df -v /
 
@@ -645,6 +653,7 @@ listed as being mounted as the root (/) file system.
 
 If the root disk is encapsulated, follow the appropriate upgrade
 procedures.
+（如果root disk是压缩的，通过下面的程序来进行适当的升级）
 
 
 Planning the upgrade
@@ -652,28 +661,36 @@ Planning the upgrade
 
 Be sure that the administrator doing the upgrade has root access and a
 working knowledge of Linux operating system administration.
+（确认管理员有足够的权限，而且需要一定linux操作系统的知识经验）
 
 Complete the following tasks in advance of upgrading:
+（在升级前需要完成以下的几个任务）
 
 * Check the latest Storage Foundation Release Notes to verify that the
   system is running a supported Linux version.
+  （检查当前版本是否与操作系统匹配）
 
 * Schedule sufficient outage time for the upgrade, and downtime for any
   applications using the VxFS file systems or VxVM volumes.
+  （计划好足够的存储时间，以及平台上运营的应用的停机）
 
 * To reliably save information on a mirrored disk, shut down the system
   and physically remove the mirrored disk. (This may not be practical,
   but if done, offers a failback point.)
+  （为保证可靠，最好将信息存放在镜像中，关机同时将镜像移走。这个未必是通过实践验证的，但如果已经做了，需要提供一个恢复的点）
 
 * To upgrade on a remote host, rsh or ssh must be set up.
+（如果是在远程机器进行升级，rsh或者ssh必须是已经安装好的）
 
 * Determine if the root disk is encapsulated.
+（确定root disk是压缩的）
 
 * Select the method to upgrade.
+（选择升级模式）
 
 
 
-Saving system information before upgrade
+Saving system information before upgrade（升级前备份系统信息）
 ========================================
 
 Use the following procedure to save system information before an upgrade.
@@ -791,8 +808,9 @@ actions:
 
 
 
-About the Web-based installer
+About the Web-based installer（关于基于Web的安装）
 =============================
+#选择这种模式，会提供一个URL，可以通过该URL，在可视化页面进行操作
 
 Use the Web-based installer's interface to install Veritas products. The
 Web-based installer can perform most of the tasks that the script-based
@@ -819,6 +837,7 @@ The location of the Veritas XPortal Server configuration file is
 
 About installation scripts
 ==========================
+#提供一下几种安装的脚本
 
 Veritas Storage Foundation and High Availability Solutions 5.1 SP1 PR2
 provides several installation scripts.
@@ -893,7 +912,7 @@ To start the processes
 
 
 
-Restarting the installer after a failed connection
+Restarting the installer after a failed connection（连接失败后可以重新继续进行安装）
 ==================================================
 
 If an installation is killed because of a failed connection, you can
